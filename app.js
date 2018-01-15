@@ -17,31 +17,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use((req,res)=>{
-// 	//console.log(url.parse(req.url));
-// 	//res.redirect("/public/");
-// });
 
 app.use(function(req,res,next){
 	var s=req.hostname;
-	console.log(s);
-
 	next();
 });
 
-
 app.get(["/admin/:num/:id","/aaa"], function(req, res, next) {
-	
-
-
-    console.log("12345");
     next();
 });
-
-
-
-
-
 
 const IP=os.networkInterfaces().en0[1].address;
 app.listen(PORT,()=>{
